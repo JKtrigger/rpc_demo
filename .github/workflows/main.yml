@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - uses: actions/checkout@v3
+
+
+      - name: Prepare Package Wheel
+        run: |
+          pip install poetry
+          poetry install 
+          compile.sh
+      - name: Test
+        run: |
+            pytest
+      - name: Launch client and server
+        run: | 
+          python server.py > /dev/null 2>&1 &
+          python client.py
+          kill -9 $(lsof -t -i:5001)

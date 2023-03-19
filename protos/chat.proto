@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package grpc;
+
+message Null {};
+
+message Message {
+    string author = 1;
+    string text = 2;
+}
+
+service Chatting {
+    rpc MessageStream (Null) returns (stream Message);
+    rpc SendMessage (Message) returns (Null);
+}
