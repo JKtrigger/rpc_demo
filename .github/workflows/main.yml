@@ -25,8 +25,8 @@ jobs:
           compile.sh
       - name: Test
         run: |
+            pip install poetry
             poetry install 
-            pip install pytest
             pytest
       - name: Launch client and server
         run: | 
