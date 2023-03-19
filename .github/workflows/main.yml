@@ -20,8 +20,8 @@ jobs:
       - run: python -V
       - run: echo " pip poetry  "
       - run: pip install poetry
-      - run: pip install protobuf==4.21
       - run: poetry install --no-root
+      - run: pip install protobuf<=3.20.1 --force-reinstall
       - run: ./compile.sh
       - run: pytest
 #
