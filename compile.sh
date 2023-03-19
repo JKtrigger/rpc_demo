@@ -16,5 +16,8 @@ rm -rf  ./chat
 echo "[1/1] install packages"
 pip install --force-reinstall chat-0.0.1-py3-none-any.whl
 rm chat-0.0.1-py3-none-any.whl
+ls /home/runner/.local/lib/python3.10/site-packages/chat/
+ls /home/runner/.local/lib/python3.10/site-packages/chat/proto
+
 python ./main.py
 
