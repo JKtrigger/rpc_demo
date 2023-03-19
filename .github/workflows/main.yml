@@ -21,7 +21,7 @@ jobs:
       - run: echo " pip poetry  "
       - run: pip install poetry
       - run: poetry install --no-root
-      - run: compile.sh
+      - run: ./compile.sh
       - run: pytest
 #
 #          compile.sh
