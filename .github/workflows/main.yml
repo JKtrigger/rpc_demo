@@ -24,6 +24,7 @@ jobs:
           poetry install 
           echo " compile "
           compile.sh
+          pip install grpcio
           pytest
           python server.py > /dev/null 2>&1 &
           python client.py
