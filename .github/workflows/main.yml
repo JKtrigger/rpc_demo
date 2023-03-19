@@ -23,8 +23,11 @@ jobs:
           mkdir -p ./chat/proto
           cp ./protos/__init__.py ./chat/proto/__init__.py
           python -m grpc_tools.protoc --proto_path=./protos/ --python_out=./chat/proto --grpc_python_out=./chat/proto ./protos/chat.proto
+          python setup.py sdist bdist_wheel
+          cp ./dist/chat-0.0.1-py3-none-any.whl ./chat-0.0.1-py3-none-any.whl
+          pip install --force-reinstall chat-0.0.1-py3-none-any.whl
       - run: ls ./chat/proto
-      - run: ./compile.sh
+      - run: python main.py
       - run: pytest
 #
 #          compile.sh
