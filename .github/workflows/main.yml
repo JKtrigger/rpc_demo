@@ -21,7 +21,11 @@ jobs:
       - run: echo " pip poetry  "
       - run: pip install poetry
       - run: poetry install --no-root
-      - run: pip install protobuf==3.20.1 --force-reinstall
+      - run: |
+          mkdir -p ./chat/proto
+          cp ./protos/__init__.py ./chat/proto/__init__.py
+          python -m grpc_tools.protoc --proto_path=./protos/ --python_out=./chat/proto --grpc_python_out=./chat/proto ./protos/chat.proto
+      - run: ls ./chat/proto
       - run: ./compile.sh
       - run: pytest
 #
