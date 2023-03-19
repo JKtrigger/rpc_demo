@@ -23,13 +23,7 @@ jobs:
           poetry install 
           echo " compile "
           compile.sh
-      - name: Test
-        run: |
-            pip install poetry
-            poetry install 
-            pytest
-      - name: Launch client and server
-        run: | 
+          pytest
           python server.py > /dev/null 2>&1 &
           python client.py
           kill -9 $(lsof -t -i:5001)
