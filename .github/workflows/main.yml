@@ -15,8 +15,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Prepare Package Wheel
+      - name: Tests
         run:
+          python -V
           echo " pip poetry  "
           pip install poetry
           echo " poetry install "
