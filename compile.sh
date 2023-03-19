@@ -9,6 +9,8 @@ python -m grpc_tools.protoc --proto_path=./protos/ --python_out=./chat/proto --g
 python setup.py sdist bdist_wheel
 echo "[3/3] Delete artists"
 cp ./dist/chat-0.0.1-py3-none-any.whl ./chat-0.0.1-py3-none-any.whl
+ls ./chat/proto
+ls ./chat
 rm -rf ./chat.egg-info
 rm -rf  ./dist
 rm -rf  ./build
