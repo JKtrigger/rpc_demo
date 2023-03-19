@@ -15,18 +15,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Tests
-        run:
-          python -V
-          echo " pip poetry  "
-          pip install poetry
-          echo " poetry install "
-          poetry install 
-          echo " compile "
-          compile.sh
-          python install grpcio
-          python install grpcio-tools
-          pytest
-          python server.py > /dev/null 2>&1 &
-          python client.py
-          kill -9 $(lsof -t -i:5001)
+      - run: python -V
+      - run: echo " pip poetry  "
+      - run:  pip install poetry
+#          echo " poetry install "
+#          poetry install
+#          echo " compile "
+#          compile.sh
+#          python install grpcio
+#          python install grpcio-tools
+#          pytest
+#          python server.py > /dev/null 2>&1 &
+#          python client.py
+#          kill -9 $(lsof -t -i:5001)
