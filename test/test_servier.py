@@ -1,7 +1,7 @@
 import server
 from service_chat import NullMessage
 
-
+# 
 def test_chatting_service():
     chatting = server.ChattingService()
     response = chatting.MessageStream(NullMessage, {})
